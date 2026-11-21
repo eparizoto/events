@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  database:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: "db_events"
+      MYSQL_USER: "events_user"
+      MYSQL_PASSWORD: "mysql"
+      MYSQL_ROOT_PASSWORD: "password"
+      TZ: "America/Sao_Paulo"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+    driver: local
